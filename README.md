@@ -1,2 +1,3 @@
-# react-rxjs-practice
-Created with CodeSandbox
+# React/Rxjs
+
+Простой проект поиска репозиториев GitHub по имени пользователя
