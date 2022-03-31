@@ -20,8 +20,9 @@ export const searchResultObservable = searchSubject.pipe(
   filter((value) => value.length > 3),
   debounceTime(500),
   distinctUntilChanged(),
-  switchMap((value) => from(getUserRepos(value))),
-  catchError((err) => of([])),
+  switchMap((value) =>
+    from(getUserRepos(value)).pipe(catchError((err) => of([])))
+  ),
   tap((value) => console.log(value)),
   map((value) => value.map((item) => `${item.full_name}`))
 );
